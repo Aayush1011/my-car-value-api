@@ -1,0 +1,40 @@
+### Sign up user
+POST http://localhost:3000/auth/signup
+Content-Type: application/json
+
+{
+    "email": "ben@stokes.com",
+    "password": "england"
+}   
+
+### Sign in user
+POST http://localhost:3000/auth/signin
+Content-Type: application/json
+
+{
+    "email": "ben@stokes1.com",
+    "password": "england"
+}
+
+### Sign out user
+POST http://localhost:3000/auth/signout
+
+### Get currently signed in user
+GET http://localhost:3000/auth/whoami
+
+### Get all users
+GET http://localhost:3000/auth
+
+### Get single user
+GET http://localhost:3000/auth/null
+
+### Delete single user
+DELETE http://localhost:3000/auth/2
+
+### Update user
+PATCH http://localhost:3000/auth/3
+Content-Type: application/json
+
+{
+    "password": "12345"
+}
