@@ -40,4 +40,21 @@ describe('Authentication System', () => {
     expect(id).toBeDefined();
     expect(responseEmail).toEqual(email);
   });
+
+  it('signs in then gets currently signed in user', async () => {
+    const email = 'how2@nice.com';
+    const res = await request(app.getHttpServer())
+      .post('/auth/signup')
+      .send({ email, password: 'verynice' })
+      .expect(201);
+    const cookie = res.get('Set-Cookie');
+
+    const { body } = await request(app.getHttpServer())
+      .get('/auth/whoami')
+      .set('Cookie', cookie)
+      .expect(200);
+
+    expect(body.id).toBeDefined();
+    expect(body.email).toEqual(email);
+  });
 });

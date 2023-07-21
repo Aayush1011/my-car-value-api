@@ -1,8 +1,7 @@
 import { Module, ValidationPipe, MiddlewareConsumer } from '@nestjs/common';
 import { APP_PIPE } from '@nestjs/core';
 import { randomBytes } from 'crypto';
-import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
-import { ConfigModule, ConfigService } from '@nestjs/config';
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
@@ -13,10 +12,6 @@ const cookieSession = require('cookie-session');
 
 @Module({
   imports: [
-    // ConfigModule.forRoot({
-    //   isGlobal: true,
-    //   envFilePath: `.env.${process.env.NODE_ENV}`,
-    // }),
     UsersModule,
     ReportsModule,
     TypeOrmModule.forRootAsync(typeOrmAsyncConfig),
