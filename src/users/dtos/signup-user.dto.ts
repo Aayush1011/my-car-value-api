@@ -6,7 +6,7 @@ import {
   IsString,
 } from 'class-validator';
 import { Validate } from 'class-validator';
-import { CustomEmailValidator } from 'src/validators/custom-email.validator';
+import { CustomEmailValidator } from '../../validators/custom-email.validator';
 
 export class SignUpUserDto {
   @Validate(CustomEmailValidator)
