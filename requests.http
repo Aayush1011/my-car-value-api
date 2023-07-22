@@ -3,8 +3,8 @@ POST http://localhost:3000/auth/signup
 Content-Type: application/json
 
 {
-    "email": "ben@stokes1.com",
-    "password": "abcde"
+    "email": "ben@stokes.com",
+    "password": "england"
 }   
 
 ### Sign in user
@@ -12,7 +12,7 @@ POST http://localhost:3000/auth/signin
 Content-Type: application/json
 
 {
-    "email": "ben@stokes1.com",
+    "email": "ben@stokes.com",
     "password": "england"
 }
 
@@ -38,3 +38,28 @@ Content-Type: application/json
 {
     "password": "12345"
 }
+
+### Create new report
+POST http://localhost:3000/reports
+Content-Type: application/json
+
+{
+    "manufacturer": "Chevrolet",
+    "model": "Camaro",
+    "year": 2010,
+    "mileage": 100000,
+    "latitude": 40.748817,
+    "longitude": -73.985428,
+    "price": 19000
+}
+
+### Approve request
+PATCH http://localhost:3000/reports/3
+Content-Type: application/json
+
+{
+    "approved": true
+}
+
+### Get vehicle estimate
+GET http://localhost:3000/reports?manufacturer=Chevrolet&model=Camaro&latitude=40.748817&longitude=-73.985428&mileage=97000&year=2009
